@@ -1,0 +1,24 @@
+[package]
+name = "rt11-ffi-elf"
+version = "0.1.0"
+
+authors = [
+        "David Rheinsberg <david@readahead.eu>",
+]
+categories = [
+        "no-std",
+        "os",
+]
+description = "Definitions of the Executable and Linkable Format"
+edition = "2021"
+homepage = "https://github.com/runtime11/runtime11"
+keywords = [
+        "binary",
+        "elf",
+        "executable",
+        "linker",
+        "loader",
+]
+license = "MIT OR Apache-2.0 OR LGPL-2.1-or-later"
+readme = "README.md"
+repository = "https://github.com/runtime11/runtime11"
