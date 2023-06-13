@@ -93,23 +93,23 @@ pub mod util {
 /// Generic ABI (gABI) Specifications:
 ///
 ///  - Published by SCO and generally most applicable:
-///    https://www.sco.com/developers/gabi/latest/contents.html
+///    <https://www.sco.com/developers/gabi/latest/contents.html>
 ///  - Published by Oracle and mostly for Solaris:
-///    https://docs.oracle.com/cd/E18752_01/pdf/817-1984.pdf
+///    <https://docs.oracle.com/cd/E18752_01/pdf/817-1984.pdf>
 ///
 /// Platform Specific ABI (psABI) Specifications:
 ///
 ///  - i386 as published by the Linux Foundation:
-///    https://refspecs.linuxfoundation.org/elf/abi386-4.pdf
+///    <https://refspecs.linuxfoundation.org/elf/abi386-4.pdf>
 ///  - x86_64 as published by the Linux Foundation:
-///    https://refspecs.linuxfoundation.org/elf/x86_64-abi-0.99.pdf
+///    <https://refspecs.linuxfoundation.org/elf/x86_64-abi-0.99.pdf>
 ///
 /// Specification Registries:
 ///
 ///  - uclibc maintained registry:
-///    https://uclibc.org/docs/
+///    <https://uclibc.org/docs/>
 ///  - Linux Foundation Reference Specifications:
-///    https://refspecs.linuxfoundation.org/
+///    <https://refspecs.linuxfoundation.org/>
 pub mod elf {
     /// Identification Table
     ///
