@@ -1,0 +1,28 @@
+[package]
+name = "rt11-loader"
+version = "0.1.0"
+
+authors = [
+        "David Rheinsberg <david@readahead.eu>",
+]
+categories = [
+        "no-std",
+        "os",
+]
+description = "ELF Dynamic Loader"
+edition = "2021"
+homepage = "https://github.com/runtime11/runtime11"
+keywords = [
+        "binary",
+        "dynamic",
+        "elf",
+        "executable",
+        "loader",
+]
+license = "MIT OR Apache-2.0 OR LGPL-2.1-or-later"
+readme = "README.md"
+repository = "https://github.com/runtime11/runtime11"
+
+[[bin]]
+name = "rt11-loader"
+test = false
