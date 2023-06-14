@@ -2,3 +2,11 @@
 members = [
         "lib/*"
 ]
+
+[profile.dev]
+debug = false
+panic = "abort"
+
+[profile.release]
+debug = false
+panic = "abort"
