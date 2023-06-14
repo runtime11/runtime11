@@ -1,5 +1,5 @@
 [package]
-name = "rt11-loader"
+name = "runtime11"
 version = "0.1.0"
 
 authors = [
@@ -9,16 +9,34 @@ categories = [
         "no-std",
         "os",
 ]
-description = "ELF Dynamic Loader"
+description = "Capability-based Linux ELF Runtime"
 edition = "2021"
 homepage = "https://github.com/runtime11/runtime11"
 keywords = [
-        "binary",
-        "dynamic",
         "elf",
-        "executable",
+        "linker",
+        "linux",
         "loader",
+        "runtime",
 ]
 license = "MIT OR Apache-2.0 OR LGPL-2.1-or-later"
 readme = "README.md"
 repository = "https://github.com/runtime11/runtime11"
+
+[dependencies]
+rt11-entrypoint = { path = "../rt11-entrypoint" }
+
+[[bin]]
+name = "rt11-runtime"
+bench = false
+test = false
+
+[[bin]]
+name = "rt11-relocate"
+bench = false
+test = false
+
+[[bin]]
+name = "rt11-loader"
+bench = false
+test = false
