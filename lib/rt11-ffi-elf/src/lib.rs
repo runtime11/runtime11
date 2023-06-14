@@ -958,12 +958,10 @@ pub mod elf64 {
 ///
 /// This module is an alias for either `elf32` or `elf64`, matching the
 /// format used of the native machine.
-pub mod elfn {
-    #[cfg(target_pointer_width = "32")]
-    pub use super::elf32::*;
-    #[cfg(target_pointer_width = "64")]
-    pub use super::elf64::*;
-}
+#[cfg(target_pointer_width = "32")]
+pub use elf32 as elfn;
+#[cfg(target_pointer_width = "64")]
+pub use elf64 as elfn;
 
 #[cfg(test)]
 mod tests {
