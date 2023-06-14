@@ -1,10 +1,10 @@
 runtime11
 =========
 
-Capability-based ELF Runtime
+Capability-based Linux ELF Runtime
 
 The runtime11 project implements a standalone application and library runtime
-for ELF binaries following capability-based security practices.
+for Linux ELF binaries with capability-based interfaces.
 
 ### Project
 

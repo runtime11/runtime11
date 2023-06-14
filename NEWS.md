@@ -1,4 +1,4 @@
-# runtime11 - Capability-based ELF Runtime
+# runtime11 - Capability-based Linux ELF Runtime
 
 ## CHANGES WITH 1.0.0:
 
