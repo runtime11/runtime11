@@ -42,5 +42,4 @@ pub extern "C" fn loader_main(_sp: *const core::ffi::c_void) -> usize {
 core::arch::global_asm!(
     rt11_entrypoint::assembly!(".text", "_start"),
     sym loader_main,
-    options(att_syntax),
 );

@@ -31,9 +31,7 @@ pub mod arch;
 ///
 /// Depending on the platform, auxiliary symbols or data may be emitted.
 ///
-/// The assembly uses AT&T syntax on all architectures. Hence,
-/// `option(att_syntax)` must be used with rust inline assembly. Furthermore,
-/// this expects the symbol name of the loader function as first argument
+/// This expects the symbol name of the loader function as first argument
 /// (e.g., `sym my_loader`).
 ///
 /// In rust, the signatures of the loader and the application entry-point are:
@@ -90,7 +88,6 @@ mod tests {
     core::arch::global_asm!(
         assembly!(".text.rt11_entrypoint_test", "rt11_entrypoint_test"),
         sym rt11_entrypoint_loader,
-        options(att_syntax),
     );
     extern "C" fn rt11_entrypoint_loader(_sp: *const core::ffi::c_void) -> elfn::Size {
         rt11_entrypoint_main as usize as elfn::Size

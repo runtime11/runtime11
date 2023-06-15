@@ -152,17 +152,17 @@ pub mod arm {
             core::concat!(
                 // Mark the IP as undefined from here on, effectively
                 // marking this as the last frame for unwinding.
-                ".cfi_undefined %r14;\n",
+                ".cfi_undefined r14;\n",
 
                 // Call the loader with the stack-pointer as only
                 // argument (in %r0). The loader will return the
                 // application entry-point in %r0.
-                "mv %sp, %r0;\n",
+                "mov r0, sp;\n",
                 "bl {0};\n",
 
                 // Jump to the application entry-point with the same
                 // stack as the kernel provided to us.
-                "bx %r0;\n",
+                "bx r0;\n",
             )
         }
     }
@@ -216,17 +216,17 @@ pub mod arm64 {
             core::concat!(
                 // Mark the IP as undefined from here on, effectively
                 // marking this as the last frame for unwinding.
-                ".cfi_undefined %x30;\n",
+                ".cfi_undefined x30;\n",
 
                 // Call the loader with the stack-pointer as only
                 // argument (in %x0). The loader will return the
                 // application entry-point in %x0.
-                "mov %sp, %x0;\n",
+                "mov x0, sp;\n",
                 "bl {0};\n",
 
                 // Jump to the application entry-point with the same
                 // stack as the kernel provided to us.
-                "bx %x0;\n",
+                "br x0;\n",
             )
         }
     }
@@ -282,17 +282,17 @@ pub mod riscv64 {
             core::concat!(
                 // Mark the IP as undefined from here on, effectively
                 // marking this as the last frame for unwinding.
-                ".cfi_undefined %ra;\n",
+                ".cfi_undefined ra;\n",
 
                 // Call the loader with the stack-pointer as only
                 // argument (in %a0). The loader will return the
                 // application entry-point in %a0.
-                "mv %sp, %a0;\n",
+                "mv a0, sp;\n",
                 "call {0};\n",
 
                 // Jump to the application entry-point with the same
                 // stack as the kernel provided to us.
-                "jr %a0;\n",
+                "jr a0;\n",
             )
         }
     }
@@ -344,7 +344,7 @@ pub mod x86 {
             core::concat!(
                 // Mark the IP as undefined from here on, effectively
                 // marking this as the last frame for unwinding.
-                ".cfi_undefined %eip;\n",
+                ".cfi_undefined eip;\n",
 
                 // Call the loader with the stack-pointer as only
                 // argument (on stack). The loader will return the
@@ -353,15 +353,15 @@ pub mod x86 {
                 // function entry, so bump the SP accordingly (this
                 // was introduced by gcc-4.5). Note that the SP is
                 // 16-byte aligned when we are called.
-                "movl %esp, %eax;\n",
-                "subl $12, %esp;\n",
-                "pushl %eax;\n",
+                "mov eax, esp;\n",
+                "sub esp, 12;\n",
+                "push eax;\n",
                 "call {0};\n",
-                "addl $16, %esp;\n",
+                "add esp, 16;\n",
 
                 // Jump to the application entry-point with the same
                 // stack as the kernel provided to us.
-                "jmp *%eax;\n",
+                "jmp eax;\n",
             )
         }
     }
@@ -413,17 +413,17 @@ pub mod x86_64 {
             core::concat!(
                 // Mark the IP as undefined from here on, effectively
                 // marking this as the last frame for unwinding.
-                ".cfi_undefined %rip;\n",
+                ".cfi_undefined rip;\n",
 
                 // Call the loader with the stack-pointer as only
                 // argument (in %rdi). The loader will return the
                 // application entry-point in %rax.
-                "mov %rsp, %rdi;\n",
+                "mov rdi, rsp;\n",
                 "call {0};\n",
 
                 // Jump to the application entry-point with the same
                 // stack as the kernel provided to us.
-                "jmp *%rax;\n",
+                "jmp rax;\n",
             )
         }
     }
