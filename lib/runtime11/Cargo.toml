@@ -25,6 +25,7 @@ repository = "https://github.com/runtime11/runtime11"
 
 [dependencies]
 rt11-entrypoint = { path = "../rt11-entrypoint" }
+rt11-ffi-linux = { path = "../rt11-ffi-linux" }
 
 [[bin]]
 name = "rt11-runtime"

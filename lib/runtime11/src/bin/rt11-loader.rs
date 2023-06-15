@@ -6,6 +6,7 @@
 #![no_main]
 
 use rt11_entrypoint;
+use rt11_ffi_linux;
 
 #[panic_handler]
 fn panic_handler(_info: &core::panic::PanicInfo) -> ! {
@@ -13,21 +14,15 @@ fn panic_handler(_info: &core::panic::PanicInfo) -> ! {
 }
 
 fn exit(code: usize) -> usize {
-    let r: usize;
-    let nr: usize = 60;
+    let sc = rt11_ffi_linux::native::syscall::Syscall { };
 
     unsafe {
-        core::arch::asm!(
-            "syscall",
-            inlateout("rax") nr => r,
-            in("rdi") code,
-            out("rcx") _,
-            out("r11") _,
-            options(nostack, preserves_flags)
-        );
+        <_ as rt11_ffi_linux::common::Syscall>::syscall1(
+            &sc,
+            rt11_ffi_linux::native::nr::EXIT as usize,
+            code,
+        )
     }
-
-    r
 }
 
 pub extern "C" fn main() -> ! {
