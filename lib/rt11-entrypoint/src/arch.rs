@@ -24,7 +24,7 @@
 #[cfg(not(any(
     doc,
     target_arch = "arm",
-    target_arch = "arm64",
+    target_arch = "aarch64",
     target_arch = "riscv64",
     target_arch = "x86",
     target_arch = "x86_64",
@@ -461,7 +461,7 @@ pub use doc as native;
 
 #[cfg(all(not(doc), target_arch = "arm"))]
 pub use arm as native;
-#[cfg(all(not(doc), target_arch = "arm64"))]
+#[cfg(all(not(doc), target_arch = "aarch64"))]
 pub use arm64 as native;
 #[cfg(all(not(doc), target_arch = "riscv64"))]
 pub use riscv64 as native;
