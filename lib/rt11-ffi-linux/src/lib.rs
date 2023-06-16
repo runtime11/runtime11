@@ -433,7 +433,7 @@ mod test {
         // for `copy_file_range()`, so handle `ENOSYS` (-38) properly and skip
         // the test. This is unfortunate and we should probably find another
         // syscall to test that has better coverage.
-        if r0 != -38isize as usize {
+        if r0 as isize != -(native::errno::ENOSYS as isize) {
             assert_eq!(r0, 6);
 
             let r0 = unsafe {
