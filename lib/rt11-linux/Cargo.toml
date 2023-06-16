@@ -1,0 +1,27 @@
+[package]
+name = "rt11-linux"
+version = "0.1.0"
+
+authors = [
+        "David Rheinsberg <david@readahead.eu>",
+]
+categories = [
+        "no-std",
+        "os",
+]
+description = "Capability-based Linux Kernel Interface Abstractions"
+edition = "2021"
+homepage = "https://github.com/runtime11/runtime11"
+keywords = [
+        "abi",
+        "api",
+        "kernel",
+        "linux",
+        "syscall",
+]
+license = "MIT OR Apache-2.0 OR LGPL-2.1-or-later"
+readme = "README.md"
+repository = "https://github.com/runtime11/runtime11"
+
+[dependencies]
+rt11-ffi-linux = { path = "../rt11-ffi-linux" }
