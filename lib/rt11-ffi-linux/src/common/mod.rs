@@ -12,6 +12,8 @@
 //! Note that for documentational purposes, this module also exposes some
 //! definitions that are not used by any architecture.
 
+pub mod errno;
+
 /// System Call Numbers
 ///
 /// For most architectures, each system is assigned a number, which is used to

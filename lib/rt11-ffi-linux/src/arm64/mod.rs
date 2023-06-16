@@ -5,4 +5,5 @@
 
 pub mod syscall;
 
+pub use crate::common::errno as errno;
 pub use crate::common::nr as nr;
