@@ -6,7 +6,7 @@
 #![no_main]
 
 use rt11_entrypoint;
-use rt11_ffi_linux;
+use rt11_linux;
 
 #[panic_handler]
 fn panic_handler(_info: &core::panic::PanicInfo) -> ! {
@@ -73,21 +73,10 @@ extern "C" fn __aeabi_unwind_cpp_pr2(
     return 9;
 }
 
-fn exit(code: usize) -> usize {
-    let sc = rt11_ffi_linux::native::syscall::Syscall { };
-
-    unsafe {
-        <_ as rt11_ffi_linux::common::Syscall>::syscall1(
-            &sc,
-            rt11_ffi_linux::native::nr::EXIT as usize,
-            code,
-        )
-    }
-}
-
 pub extern "C" fn main() -> ! {
-    exit(71);
-    core::panic!();
+    let this = unsafe { rt11_linux::this::This::new() };
+
+    this.syscall.exit(71);
 }
 
 pub extern "C" fn loader_main(_sp: *const core::ffi::c_void) -> usize {
