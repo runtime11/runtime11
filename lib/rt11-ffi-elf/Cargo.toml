@@ -2,9 +2,6 @@
 name = "rt11-ffi-elf"
 version = "0.1.0"
 
-authors = [
-        "David Rheinsberg <david@readahead.eu>",
-]
 categories = [
         "no-std",
         "os",
