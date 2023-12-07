@@ -1,0 +1,20 @@
+[package]
+name = "nostd"
+version = "0.0.1"
+
+description = "Capability-based Linux Standard Library"
+keywords = [
+        "api",
+        "library",
+        "linux",
+        "standard",
+        "utility",
+]
+
+categories.workspace = true
+edition.workspace = true
+homepage.workspace = true
+license.workspace = true
+readme.workspace = true
+repository.workspace = true
+rust-version.workspace = true
